@@ -1,0 +1,1289 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Preetham's Posts</title>
+        <link>https://www.preethamrn.com/</link>
+        <description>I write about productivity, software development, cubing, and various projects that I'm working on.</description>
+        <lastBuildDate>Fri, 22 Dec 2023 03:47:04 GMT</lastBuildDate>
+        <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
+        <generator>Gridsome Feed Plugin</generator>
+        <atom:link href="https://www.preethamrn.com/feed.xml" rel="self" type="application/rss+xml"/>
+        <item>
+            <title><![CDATA[Piver - The strangest versioning system that's actually used]]></title>
+            <link>https://www.preethamrn.com/posts/piver/</link>
+            <guid>https://www.preethamrn.com/posts/piver/</guid>
+            <pubDate>Sun, 17 Dec 2023 00:00:00 GMT</pubDate>
+            <content:encoded><![CDATA[
+You've heard of semver. You've heard of calver. But what about piver[^1]?
+
+For any versioning system to work, it needs to increase as new version are released. So in theory, instead of going from v1 to v2, you could go v1 -> v1.2 -> v1.23 -> v1.234 -> v1.2345 and so on. 
+Now this wouldn't be a good versioning system and it's definitely not scalable, but it works.
+
+Now imagine a system where instead of simply counting up the digits in numerical order, you instead chose to go by the digits of pi. And imagine if that system was used by a piece of software that was being used by millions of people around the world - you've probably even heard of it. It's called TeX.
+
+You're probably in one of two camps right now. Either you've heard of this fact before and it's nothing new. Or you're like me and wondering all sorts of questions. For example:
+#### 1. Did it start of like this or did this versioning system emerge sometime after the initial release?
+There is no comprehensive list of TeX versions[^2] however it seems that after envisioning the idea for TeX in 1977, Donald Knuth released the first version called TeX82 in 1982. And then the next version of TeX with breaking changes[^3] was called TeX90 (I wonder when this was released). At this point, the version number 3.0 was assigned and it was decided that future versions of TeX would asymptotically approach the value of pi, digit by digit.
+
+#### 2. How does this work with other pieces of software like Github?
+Github releases are based on git tags. So this system should work as long as it never exceeds the length limit of a git tag[^4]. In any case, it doesn't matter because TeX isn't hosted on Github. Most TeX packages that I can find are listed on [CTAN](https://ctan.org/tex-archive) - the Comprehensive TeX Archive Network[^5]. The project predates Github by decades and will probably stay alive well past Github's shelf life.
+
+#### 3. What version is TeX on right now?
+When I first found out that TeX was using piver, I assumed that, like a lot of software, it would have had hundreds of releases by now and the current version would be hundreds of digits long.
+
+But turns out, TeX is only on version [3.141592653](https://ctan.org/pkg/plain).
+
+Bug reports are analyzed every few years and a new version is released thereafter. This has happened in 1992, 1993, 1995, 1998, 2002, 2007, 2013, and 2020[^6]. Following the pattern, the next change is expected in 2028 and the pattern will continue up until Donald Knuth's death, at which point, the final version of pi will be released, presumably indicating that the TeX has approached the asymptote and no future versions will be released. All bugs will becomes "features".
+
+#### 4. and most importantly... Why?!
+Knuth says it best in the [11:4 issue of TUGboat](https://tug.org/TUGboat/Articles/tb11-4/tb30knut.pdf)
+> "I strongly believe
+that an unchanging system has great value, even
+though it is axiomatic that any complex system can
+be improved. Therefore I believe that it is unwise to
+make further "improvements" to the systems called
+TeX and METAFONT. Let us regard these systems
+as fixed points, which should give the same results
+100 years from now that they produce today."
+
+Originally I thought you'd have to be crazy to use a system like this, but after reading about it and learning the history of TeX, I realized that most software should actually strive to be more like it - instead of trying to do everything, solve a problem, solve it well, and try to make it compatible with other systems to enable extensibility without needing many future changes.
+
+---
+
+A few other notably wacky versioning systems:
+ - **e-ver**: (like piver but using e instead of pi). Used by Metafont (a companion to TeX, also developed by Donald Knuth) and it's currently on v2.71828182. Similar to TeX, after Knuth's death, the final version of e will be assigned and this will receive no further releases.
+ - **[0ver](https://0ver.org/)**: Not sure if this is to be taken seriously or not (given how widespread its usage is) but as the name suggests, in 0ver you never increment the major version and use 0.x.y.z.... forever.
+ - **[SenVer](https://archive.ph/NjRQl)**[^7]: Not to be confused with SemVer, SenVer stands for Sentimental Versioning - where you get to decide what the version means using a vibes based approach.
+
+Appendix: If this interested you, you can read more about the history of TeX, as well as how all the different softwares interface on the TeX User Group communications. A few links to get you started:
+
+1. Overview of TeX, its children and their friends - Arno Trautmann: https://github.com/alt/tex-overview/blob/master/tex-overview.pdf
+2. LaTeX vs MiKTeX vs TeX: https://tug.org/levels.html
+3. TUGboat issues: https://tug.org/TUGboat/contents.html
+4. A list of errata/corrections written by Donald Knuth, dating back to 1989: https://ctan.org/tex-archive/systems/knuth/dist/errata
+5. Tuneups to TeX and Metafont in [2008](https://tug.org/TUGboat/tb29-2/tb92knut.pdf), [2014](https://tug.org/TUGboat/tb35-1/tb109knut.pdf), and [2021](https://tug.org/TUGboat/tb42-1/tb130knuth-tuneup21.pdf). Select communications between TeX implementers between 1987-1993 [here](https://ctan.org/pkg/tex-implementors). 
+
+[^1]: piver isn't technically a real name. I made it up. I'm not sure this versioning system even has a real name.
+[^2]: You could probably make a comprehensive list by going through all the issues of the TUGboat collection [here](https://tug.org/TUGboat/contents.html).
+[^3]: The primary reason for a breaking change was in order to support larger 8-bit character sets that were common in Europe and Asia (https://tug.org/TUGboat/Articles/tb10-3/tb25knut.pdf). Presumably if TeX had started with an 8-bit character set, there would never have been any breaking changes.
+[^4]: On my machine this is <span style='word-wrap: break-word'>3.14159265358979323846264338327950288419716939937510582097494459230781640628620899862803482534211706798214808651328230664709384460955058223172535940812848111745028410270193852110555964462294895493038196442881097566593344612847564823378678316527120190</span>. Any longer and I get an error "File name too long".
+[^5]: Other TeX software however can be found on Github (with more sensible versioning systems). For example, LaTeX is released both on [CTAN](https://ctan.org/pkg/latex) as well as [Github](https://github.com/latex3).
+[^6]: https://www-cs-faculty.stanford.edu/~knuth/abcde.html#bugs. The bugfixes in the latest release can be found [here](https://tug.org/texmfbug/tuneup21bugs.html).
+[^7]: Unfortunately it appears that this link has succumbed to link rot - a topic that I think about a lot and will probably write about in the near future. The original sentimentalversioning.org page leads to something else now.
+]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[My First Open Source Contribution]]></title>
+            <link>https://www.preethamrn.com/posts/my-first-open-source-contribution/</link>
+            <guid>https://www.preethamrn.com/posts/my-first-open-source-contribution/</guid>
+            <pubDate>Sun, 06 Aug 2023 00:00:00 GMT</pubDate>
+            <content:encoded><![CDATA[
+One of the things that I love about programming is that you can see a problem in the world and solve it. When I had trouble getting into one of my college classes, I wrote a web scraper that would look at the class catalog for open seats and notify me when a spot came up so I could quickly register. When there wasn't a website for some niche Pokemon specific information, [I made one myself](https://www.preethamrn.com/pokemondens/) ([and it went a little viral](https://www.reddit.com/r/PokemonSwordAndShield/comments/es50l6/update_interactive_map_of_the_wild_area_with_list/)).
+
+So when I found out that one of the [apps](https://play.google.com/store/apps/details?id=com.razeeman.util.simpletimetracker) I used on a daily basis was [open source](https://github.com/Razeeman/Android-SimpleTimeTracker), I was pleasantly surprised. This app allowed you to track how you spent every second of your day. I love data and I love procrastination so this was perfect for me - I get to analyze how I spend my time and clamp down on the ways that I procrastinate mindlessly.
+
+But there were 2 issues that bothered me:
+1. The date format used "day/month" instead of "month/day". I've lived in India and the US so I'm familiar with both and each have their merits[^1] but I'm used to month/day right now so I wished there was a setting for it.
+2. The app allows you to filter for activities in a specific time range. However, if an activity exceeds the time range then it doesn't clamp it to the specified time range. I don't need to know that I spent 30 minutes watching YouTube, 30 minutes reading, and 8 hours sleeping for the activities between 12am and 2am.
+
+Now I could actually fix them. On the other hand, I was a little bit daunted. Even though this wasn't the Linux kernel or anything like that it would still be my first time contributing a real change to some open source codebase and I didn't want to make a fool of myself.
+
+This post will go over issue #1 - Supporting month/day formatting in the bar chart.
+
+![The issue](./issue.png)
+
+Step one was figuring out where the date formatting code even was[^2]. Generally when I'm doing this, I first try to get a grip onto the code by diving deep into it. I look for the tiniest thing that I can recognize and try to work my way around that to see how it fits in.
+
+In this case, that was the string "Average for period" you can see in the image above
+Searching for it led me to this code:
+```xml
+<string name="statistics_detail_range_averages_title">Average for period: %s</string>
+```
+
+And searching for the resource name got me this:
+```kotlin
+private fun getRangeAverages(  
+    data: List<ChartBarDataDuration>,  
+    ...
+): Pair<String, List<StatisticsDetailCardViewData>> {
+...
+val title = resourceRepo.getString(  
+    R.string.statistics_detail_range_averages_title,  
+    mapToGroupingName(chartGrouping)  
+)
+...
+}
+```
+
+Great. Now I have to learn Kotlin as well... Fortunately I already know Java and Kotlin isn't that far off. And once I get the hang of Kotlin I'll be glad is isn't Java.
+
+Following the call stack up we get: `getRangeAverages` -> `mapToChartViewData` -> `getChartViewData` -> `loadChartViewData` -> `updateChartViewData` ... I think we've probably gone a bit too far here.
+
+`getChartViewData` seemed interesting. One of the methods it used - `getRanges` returned a list of `ChartBarDataRange`
+```kotlin
+private fun getRanges(  
+    currentChartGrouping: ChartGrouping,  
+    currentChartLength: ChartLength,  
+    rangeLength: RangeLength,  
+    rangePosition: Int,  
+    firstDayOfWeek: DayOfWeek,  
+    startOfDayShift: Long,  
+): Pair<List<ChartBarDataRange>, CompositeChartData>
+```
+
+The `ChartBarDataRange` had a `legend` field which (assuming we were talking about the same legend) was exactly what I needed to update.
+```kotlin
+class ChartBarDataRange(  
+    val legend: String,  
+    val rangeStart: Long,  
+    val rangeEnd: Long  
+)
+```
+
+After that it was just a matter of finding out where the legend was set.
+```kotlin
+val legend = timeMapper.formatShortDay(calendar.timeInMillis)
+```
+
+Bingo.
+The `formatShortDay` method was extremely simple. It just formatted a time using the `dd.MM` format. All I needed to do was change this to `MM.dd`.
+```kotlin
+private val shortDayFormat by lazy { SimpleDateFormat("dd.MM", locale) }
+
+fun formatShortDay(time: Long): String = synchronized(lock) {  
+    return shortDayFormat.format(time)    
+}
+```
+
+But obviously I couldn't just break something that was already working or else no one would accept my pull request. Maybe some people actually prefer the `dd.MM` format. So I had to go on another journey to figure out how to add user preferences.
+
+One surprisingly long and significantly less interesting[^3] expedition later and I ended up with this:
+```kotlin
+private val shortDayFormatMMDD by lazy { SimpleDateFormat("MM.dd", locale) }  
+private val shortDayFormatDDMM by lazy { SimpleDateFormat("dd.MM", locale) }
+
+fun formatShortDay(time: Long, useMonthDayTimeFormat: Boolean): String = synchronized(lock) {  
+    if (useMonthDayTimeFormat) {  
+        return shortDayFormatMMDD.format(time)  
+    } else {  
+        return shortDayFormatDDMM.format(time)  
+    }  
+}
+```
+
+If you want to see the full pull request you can [check it out on Github](https://github.com/Razeeman/Android-SimpleTimeTracker/pull/118). One day later[^4] and it was merged with the comment.
+![Pull request accepted](./pr-accepted.png)
+
+This seemed like a relatively simple change but I won't lie, it took me at least 2 hours to pull it off. I know that because I tracked my time.
+
+![Time taken](./time-taken.png)
+
+To give a rough timeline:
+
+1. First I cloned the repo and got the application running on my device
+2. Then I used specific string and other details to find the activity and class where the relevant time formatting code was located
+3. I quickly replaced the existing time format with my own to see if this would fix the issue on my device. It did. 
+4. I found all the places where the time formatting was referenced and ensured I didn't break any of those
+5. I removed my quick fix and instead locked my change behind a setting that could be toggled and added code that allowed users to toggle that preference
+6. I forked the repo, pushed my changes to a feature branch, and submitted a pull request
+7. The change was approved and merged.
+
+All things considered the process went a lot more smoothly than I expected. I'm definitely going to contribute more in the future and I'd recommend you all to as well.
+
+I mentioned 2 issues earlier but this post is already getting quite long so I'll leave it at that. Part 2 coming soon. If you want to get a sneak peak, check out the [second pull request](https://github.com/Razeeman/Android-SimpleTimeTracker/pull/119) as well - slightly less likely to get merged but at least I'll be able to use the code for myself.
+
+[^1]: I say that each has their merits but if I'm being honest, I have no idea why you would use day/month. I know people say that it's better because it's in order - you go day/month/year from smallest to largest. But that means that when you try sorting days in lexicographical order, you get 11/01/2022 before 13/07/2005 which makes absolutely no sense. I think most people would agree than year/month/day is the best format because that sorts really well. And if you exclude the year then you get month/day which is perfect! And yeah month/day/year is a weird format too but at least if the year is all the same (eg. if you have a separate folder for all 2023 files) then you get the nice sorting property again.
+
+[^2]: Step one was actually cloning the repo, installing Android Studio, fixing random issues with gradle, finding out that for some reason I was using a 32 bit version of Java in Android Studio, and making sure that I was able to even run the thing on my phone. But all that is less interesting than the actual process of diving into a massive, unfamiliar codebase.
+
+[^3]: Most of the expedition was going through a bunch of different parts of the code to add a new preference for `useMonthDayTimeFormat`, a new checkbox to allow toggling the preference, UI event hooks so that everything behaves properly when the checkbox is checked, and refactoring a bunch of method signatures so we're able to pass the preferences down to where they're actually used.
+
+[^4]: I double checked this after writing the blog and turns out it was even faster. Within 3 hours the pull request was reviewed and merged.]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[How Fast Inverse Square Root actually works]]></title>
+            <link>https://www.preethamrn.com/posts/fast-inverse-sqrt-sfw/</link>
+            <guid>https://www.preethamrn.com/posts/fast-inverse-sqrt-sfw/</guid>
+            <pubDate>Sun, 14 Aug 2022 00:00:00 GMT</pubDate>
+            <content:encoded><![CDATA[import NewtonMethodDemo from '@/components/PostComponents/FastInverseSqrt/NewtonMethodDemo.vue'
+import FloatingPointDemo from '@/components/PostComponents/FastInverseSqrt/FloatingPointDemo.vue'
+import SideBySide from '@/components/Blog/SideBySide.vue'
+import Highlight from '@/components/Blog/Highlight.vue'
+
+$$
+\frac{1}{\sqrt{x}}
+$$
+
+```c
+float Q_rsqrt( float number )
+{
+  long i;
+  float x2, y;
+  const float threehalfs = 1.5F;
+
+  x2 = number * 0.5F;
+  y  = number;
+  i  = * ( long * ) &y;         // evil floating point bit level hacking
+  i  = 0x5f3759df - ( i >> 1 ); // what ???
+  y  = * ( float * ) &i;
+  y  = y * ( threehalfs - ( x2 * y * y ) );   // 1st iteration
+//  y  = y * ( threehalfs - ( x2 * y * y ) );   // optional 2nd iteration
+
+  return y;
+}
+```
+
+Fast Inverse Square Root is one of the most famous algorithms in game development. But what makes it so iconic? How does the algorithm work? And where does `0x5f3759df` come from? All will be answered in this "simple" blog post.
+
+## Why is this algorithm so iconic?
+It's not often that you see such vague comments in official, [public source code](https://github.com/id-Software/Quake-III-Arena/blob/dbe4ddb10315479fc00086f08e25d968b4b43c49/code/game/q_math.c#L552).[^1] And doing division without a single division operator! How's that even possible?! And more importantly, why?
+
+Finding the inverse square root of a number is important for normalizing vectors in computer graphics programs which is often required in lighting and shaders calculations. These computations are made thousands of times per frame so it was imperative to find a fast algorithm for them.
+
+To naively find the inverse square root we must first find the square root of a number and then find its reciprocal. Both of those are complex operations that take a long time on old CPUs. On the other hand, the fast algorithm only requires multiplications, bit shifts, and subtraction, all of which can run much faster so it became the defacto method for computing inverse square roots.
+
+Is it used today? Not really. Hardware advancements have made this pretty obsolete since many CPUs come with rsqrt instructions which can compute the inverse square root in a single instruction[^2].
+
+# "Slow inverse square root"
+
+```c
+float S_rsqrt( float number, int iterations ) {
+  long i;
+  float x2, y;
+  const float threehalfs = 1.5F;
+
+  x2 = number * 0.5F;
+  y  = 0.01; // initial value of y - the result that we're approximating
+  for (int i = 0; i < iterations; i++) {
+    y  = y * ( threehalfs - ( x2 * y * y ) );
+  }
+
+  return y;
+}
+```
+
+Here's my "slow" inverse square root algorithm.
+
+Try [running](https://replit.com/@PreethamNaraya1/Slow-Inverse-Square-Root#main.c) it. It's slower but surprisingly it still works. Unlike the fast method, this doesn't use `0x5f3759df` or the "evil floating point hack". But it also doesn't use any square root or division operations. That's because those steps aren't required. The core of this algorithm is using something called Newton's method.
+
+## Newton's Method
+
+There are plenty of great resources on what this method is and why it works.
+
+[Newton's method produces this fractal, why don't we teach it in calculus classes?](https://youtu.be/-RdOwhmqP5s?t=336)
+
+TL;DW: It works by taking an approximation and iterating closer and closer to the actual value by riding the slope of the curve.
+
+<Highlight>
+  <NewtonMethodDemo id='1'/>
+</Highlight>
+
+* The <span style='color: blue'>blue line</span> is the equation for which we're trying to find the solution (the point where it intersects with the x-axis).
+
+* The <span style='color: red'>red line</span> is the tangent to the blue line at the point where x is our initial guess ($y_n$). This is the slope that we're riding.
+
+* The <span style='color: green'>green line</span> is the x intercept of the red line. We can either use this as our solution approximation or use it to repeat the Newton method with another guess ($y_{n+1}$) until we get close to the actual solution.
+
+Here's a bunch of fancy math for completion's sake however you can skip to the [next section](#what--ie-choosing-a-better-initial-guess) if you're more interested in where `0x5f3759df` comes from and how the evil floating point bit level hack works.
+
+<Highlight>
+
+### Fancy math
+
+Let's say that x is our input number and y is the inverse square root. We want to solve for the equation
+
+$$
+\begin{aligned}
+y &= 1/sqrt(x)\\
+\text{or } 0 &= 1/y^2 - x
+\end{aligned}
+$$
+
+Newton's method can help us solve the roots of this equation for y. Remember that we're solving for y here. x is a constant input.
+
+$$
+\begin{aligned}
+f(y) &= 1/y^2 - x \\
+f'(y) &= -2y^{-3}
+\end{aligned}
+$$
+
+To get the next iteration of y, we "ride the slope" of f(y) one step closer to its root.
+
+$$
+\begin{aligned}
+y_{next} &= y - f(y)/f'(y)\\
+y_{next} &= y - \frac{1/y^2 - x}{-2/y^3}\\
+y_{next} &= y + y/2 -xy^3/2\\
+y_{next} &= y(3/2 -xy^2/2)
+\end{aligned}
+$$
+
+Which is how we get the code
+
+```c
+const float threehalfs = 1.5F;
+x2 = number * 0.5F;
+
+y = y * (threehalfs - x2 * y * y) // first iteration
+```
+
+And now we're doing an inverse square root without a single division operator! Isn't that exciting!
+
+The important thing to note here is that Newton's method is just an approximation. The closer your initial guess, the fewer iterations you'll need.[^3] With "slow inverse square root" we often need more than 10 iterations to converge on the actual value. In the fast inverse square root algorithm, we get away with just a single iteration. So that's our next goal - choosing a better initial guess.
+
+</Highlight>
+
+# "What ???" ie, choosing a better initial guess
+
+```cpp
+i = 0x5f3759df - ( i >> 1 )
+```
+
+The `i` on the left hand side is our initial guess `y` and the `i` on the right hand side is our original number `x`. So let's rewrite the code so we don't get confused between the two different values of `i`.
+
+```cpp
+y_bits = 0x5f3759df - ( x_bits >> 1 )
+```
+
+Note that we're using $x_{bits}$ instead of $x$ here. "What's the difference between $x_{bits}$ and $x$?" you might ask. While $x$ is the actual number that we're computing the inverse square root for, $x_{bits}$ is the number that a computer stores internally to represent that number, that is, the **binary representation** of that number. For example, instead of $3.33$ we're using $01000000010101010001111010111001_{\text{base } 2}$
+
+Using the binary representation allows us to do operations like subtraction (`-`) and bit shifting (`>>`). How we do this conversion will be explained in the [next section](#evil-floating-point-bit-level-hack) on "evil floating point bit level hacking" but first we need to understand how computers store numbers...
+
+## How computers store numbers
+
+Decimal integers use digits from 0 to 9 to represent numbers in base 10. Computers run off of 1s and 0s and so are restricted to only using base 2.
+
+The 1s and 0s in a computer are known as bits. Grouping together bits allows us to represent larger numbers and the numbers that we'll be dealing with today have 32 bits.
+
+Just like decimal integers use powers of 10 for each place (unit, tens, hundreds, thousands, etc.), binary integers use powers of 2. So:
+
+* Decimal $1234 = 1 * 10^3 + 2 * 10^2 + 3 * 10 + 4$
+* Binary $101101 = 1 * 2^5 + 0 * 2^4 + 1 * 2^3 + 1 * 2^2 + 0 * 2 + 1$
+
+
+You may notice however, that this doesn't allow us to represent numbers with a decimal point in them like $1.5$ or $74.123$. For that, we need to use [The IEEE Floating Point Standard](#the-ieee-floating-point-standard)
+
+### The IEEE Floating Point Standard
+
+Floating point is a fancy way of saying binary scientific notation[^4].
+
+Just like regular scientific notation has numbers like $+1.6*10^{15}, -1.731*10^{-52}, +4.25*10^0$, floating point has numbers like $+1.101011*2^{11010}, -1.001101*2^{-101}, -1.001*2^{0}$
+
+There are a few commonalities in both representations:
+
+1. The numbers are split into a sign (+ or -), a coefficient (also called a mantissa), and an exponent. For example, $-1.731*10^{-52}$ can be split into
+    * sign: $-$
+    * coefficient: $1.731$
+    * exponent: $-52$
+2. The leading number is never zero. If it was, we could just shift the point to the first non-zero number and subtract from the exponent. For example, instead of $0.61*10^2$, we can write $6.1*10^1$
+
+Using these two rules, we can write our floating point number as
+
+$$
+\begin{aligned}
+x &= s*m*2^e
+\end{aligned}
+$$
+
+To store this on a computer, we need to convert the $s$, $e$, and $m$ values into their binary representations `S`, `E`, and `M`. 1 bit for the sign, 8 bits for the exponent, and 23 bits for the mantissa to make 32 bits in total.
+
+![IEEE 754 Standard](./ieee754-standard.png)
+
+- s is the sign. If the sign bit `S` is 0 then the number is positive (ie, +1). 1 means negative (ie, -1). For the purposes of inverse square root x will always be positive (you can't take square roots of negative numbers in the "real" world), so `S` will always be 0. We can ignore it for the rest of this post.
+- m is the mantissa. Since the leading digit of a floating point number is always a 1 in binary, the 1 is implied and `M` is just the fractional part after the point (ie, m = 1 + `M`) [^5]
+- e is the exponent. To store positive and negative exponents, we take the unsigned 8 bit exponent value (`E`) and subtract 127 to get a range from -127 to +128. This allows us to store tiny fractions smaller than 1 using negative exponents and large numbers bigger than 1 using positive exponents.
+
+Putting all those constraints together, we get the following equation for our floating point number x in terms of the binary representations of `S`, `M`, and `E`
+
+$$
+\begin{aligned}
+x_{bits} &= 2^{23}*(E+M)\\
+x &= S*(1 + M)*2^{E-127}
+\end{aligned}
+$$
+
+Try playing around with this floating point number calculator to create floating point numbers of your own!
+
+<Highlight>
+  <FloatingPointDemo />
+</Highlight>
+
+If you click on the scientific notation you'll notice that the scientific notation matches the input number even though they don't look anything alike.
+
+### Working with logarithms
+
+Working with exponents is tricky and confusing. Instead, by taking the logarithm, we turn confusing division, multiplication, and exponent operations into simple subtraction, addition, and multiplication.
+
+It turns out that working with logarithms also allows us to find a relationship between the binary representation of x ($x_{bits}$) and the number $x$.
+
+If you squint really hard then you can see that taking the log of x will bring the exponent value down and with some scaling and shifting, it's proportional to $x_{bits}$. Fortunately, we don't have to squint.
+
+$$
+\begin{aligned}
+x_{bits} &= 2^{23}*(E + M) && \text{from earlier}
+\end{aligned}
+$$
+
+Meanwhile
+
+$$
+\begin{aligned}
+x &= (1 + M)*2^{E-127} && \text{from earlier}\\
+\implies log_2(x) &= E - 127 + log(1+M)
+\end{aligned}
+$$
+
+
+<SideBySide>
+
+<template v-slot:left>
+
+Through another fortunate quirk of logarithms, we see that [$x \approxeq log(1+x)$](https://www.desmos.com/calculator/k7eekdct1s) for small values of x between 0 and 1.
+
+Since `M` will always be within 0 and 1, we can say that $M = log(1+M) + \varepsilon$ where $\varepsilon$ is a small error term.
+
+</template>
+
+<template v-slot:right>
+
+![log(1+x) Approximation](./log-approximation.png)
+
+</template>
+
+</SideBySide>
+
+Putting all of this together, we get
+
+$$
+\begin{aligned}
+log_2(x) &= E-127+log(1+M)\\
+&=E-127+M+\varepsilon\\
+&=2^{23}*(E+M)/2^{23}-127+\varepsilon\\
+&=x_{bits}/2^{23}-127+\varepsilon\\
+\end{aligned}
+$$
+
+So now we have a mathematical relationship between the binary representation of x and log(x).
+
+## What is `0x5f3759df`
+
+Using logarithms allows us to turn $y = 1/x^{1/2}$ into $log(y) = -\frac{1}{2}log(x)$.
+
+From here, we can use the relationship we found earlier to relate the binary representations of x and y.
+
+$$
+\begin{aligned}
+&y = 1/x^{1/2}\\
+\implies &log(y) = -\frac{1}{2}log(x)\\
+\implies &y_{bits}/2^{23} - 127 + \varepsilon = -\frac{1}{2}(x_{bits}/2^{23} - 127 + \varepsilon)\\
+\implies &y_{bits} = \frac{3}{2}2^{23}(127 - 
+ε) - x_{bits}/2
+\end{aligned}
+$$
+
+Or in other words
+
+```c
+y_bits  = 0x5f3759df - ( x_bits >> 1 );
+```
+
+$\frac{3}{2}2^{23}(127 - \varepsilon)$ gets us the magic number `0x5f3759df` and $-x_{bits}/2$ gets us `-(x_bits >> 1)`
+
+If we ignore the error term ε and plug the magic number equation into [WolframAlpha](https://www.wolframalpha.com/input?i=%5Cfrac%7B3%7D%7B2%7D2%5E%7B23%7D%28127%29) we get 1598029824. And that's [equal to](https://www.wolframalpha.com/input?i=%5Cfrac%7B3%7D%7B2%7D2%5E%7B23%7D%28127%29+in+hex) … `0x5f400000`? So where did they get `0x5f3759df` from?…
+
+Most likely from the ε… I guess we're going on another tangent.
+
+## Optimizing ε with Minimaxing
+
+Minimaxing is a lot like what it sounds like. In this case, we want to minimize the maximum error - in other words, find the magic number for which `Q_rsqrt` gives the smallest error compared to the actual inverse square root when considering all possible values of x_bits.
+
+Since there are about 2 billion values of x and another 4 billion values for the magic number, we'll need to do some optimization if we want this to finish running before the sun consumes the solar system. Let's try speeding things up by cutting down the number of values that we need to search through.
+
+1. In the previous step, we approximately narrowed down the magic number to `0x5f400000`. So we only need to search between `0x5f300000` and `0x5f500000`.
+2. Instead of searching all values of x, we can ignore the exponent and only search for all values of the mantissa because ε only comes up in the equation $\text{M} = log(1 + \text{M}) + \varepsilon$. If we optimize ε for one exponent value, it's optimized for all exponent values.
+3. Instead of searching all values of the magic number one by one, we can narrow down the value of the magic number digit by digit, working in increments of 0x10000, then 0x1000 and so on until all digits are found. This way, we only check around 160 values instead of 2 million.
+
+That gives us the following pseudocode:
+```c
+// let's call the magic number C
+// and the range of values we're checking is between cMin and cMax.
+cMin, cMax =  0x5f300000, 0x5f500000
+delta = 0x10000
+while (delta > 0):
+  minMaxError, minMaxC = 10000, cMin
+  for each C between cMin and cMax in increments of delta:
+    for each mantissa value M:
+      x = 0x3f000000 + M // x in [0.5,2) with mantissa M
+      y = Q_rsqrt(x, C)
+      z = sqrt(x)
+      error = abs(1 - y * z) // relative error
+      if (error > minMaxError):
+        minMaxError = error
+        minMaxC = C
+  // narrow down the range of cMin to cMax
+  // and use smaller increments for delta
+  cMin = minMaxC - delta
+  cMax = minMaxC + delta
+  delta = delta >> 4
+
+return minMaxC
+```
+[Try running the actual code for yourself](https://replit.com/@PreethamNaraya1/Minimaxing#main.c). You can try playing around with different ranges of values, different deltas, or different numbers of iterations to see how that impacts the result.
+
+And now we get... `0x5f375a87`. This is still quite different from the constant found in the original code. At this point I was stumped. I got an answer but it wasn't the answer I was looking for. How did the developers come up with `0x5f3759df`?
+
+<!--note: TODO: show a video or graph of how the optimization process runs-->
+
+I tried comparing the errors to see if our magic number was somehow producing worse results.
+
+```bash
+$ ./main --iterations=1 0x5f3759df
+Max Error for 0x5f3759df: 0.00175233867209800831
+$ ./main --iterations=1 0x5f375a87
+Max Error for 0x5f375a87: 0.00175128778162259024
+```
+
+The error for our magic number `0x5f375a87` is smaller.
+
+I tried it with 0 iterations of Newton's method
+
+```bash
+$ ./main --iterations=0 0x5f3759df
+Max Error for 0x5f3759df: 0.03437577281600123769
+$ ./main --iterations=0 0x5f375a87
+Max Error for 0x5f375a87: 0.03436540281256528218
+```
+
+We're still smaller. I had to run it with 4 iterations of Newton's method before I started seeing both constants giving the same error of 0.00000010679068984665. And even then, the two constants were performing equally well.
+
+So if `0x5f375a87` works better then why does Quake use `0x5f3759df`? Perhaps `0x5f3759df` works better with the numbers that Quake deals with. Perhaps the developer used a different method to generate this number. Perhaps the developer figured that their number worked well enough and didn't bother optimizing it further. Perhaps it was simply pulled out of the developer's rear. Only the person who wrote this code knows why `0x5f3759df` was chosen instead. At least now we know how the magic number works.[^6]
+
+
+# Evil floating point bit level hack
+
+```c
+y  = number;
+i  = * ( long * ) &y;    // evil floating point bit level hacking
+...
+y  = * ( float * ) &i;
+```
+
+In order to do the magic from the previous step, we need to work with the binary representation of numbers (`x_bits` and `y_bits`) instead of the floating point numbers (`x` and `y`) themselves. This requires us to convert from the floating point number `x` to the 32 bits that a computer uses to store that number internally. Those 32 bits are called a long int or long for short.
+
+C allows you to convert between [floats](#the-ieee-floating-point-standard) and [longs](#how-computers-store-numbers) using [type casting](https://en.wikipedia.org/wiki/Type_conversion#C-like_languages). However, if you type cast a float to a long normally, then you would do the sensible thing and, for example, convert a float storing 3.33 into a integer storing 3.
+
+The binary representation of float(3.33) is `0x40551eb9`
+
+The binary representation of long(3) is `0x00000003`
+
+Clearly these are very different and wouldn't help us when our equation from the previous step depends on `x_bits`. What we instead want is a long that's storing `0x40551eb9` (1079320249 in decimal).
+
+In order to do that, we need to trick the computer into interpreting the floating point bits as long bits. We can do this by
+
+1. telling the computer that this float pointer (`&y`)
+2. is actually a long pointer (type casting using `(long *)`)
+3. and then dereferencing that value into a long variable (`*`).
+
+![C Memory Management](./c-memory.png)
+
+That's what this line is doing (reading right to left): `i = * (long *) &y;`
+
+Going back from i to y is just a reverse of the previous steps: convert the long pointer (`&i`) into a float pointer (`(float *)`) and dereferencing that value into a float variable (`*`). So we get `y = * ( float * ) &i;`
+
+# Putting it all together
+
+Now that we know how the algorithm works and why it works, hopefully we can turn the code a bit clearer with better comments.
+
+```c
+float Q_rsqrt(float number)
+{
+  // interpreting the float bits of the number as a long
+  // by casting the float pointer to a long pointer without
+  // modifying the bits
+  long x_bits  = * ( long * ) &number;
+
+  // finding a better initial guess for the inverse sqrt
+  long y_bits = 0x5f3759df - ( x_bits >> 1 );
+
+  // interpreting the long bits of y_bits as a float
+  // by reversing the steps from earlier
+  float y  = * ( float * ) &y_bits;
+
+  const float threehalfs = 1.5F;
+  float half_x = number * 0.5F;
+  y  = y * ( threehalfs - ( half_x * y * y ) ); // 1st iteration
+  // optional 2nd iteration to get a better approximation
+  // y  = y * ( threehalfs - ( half_x * y * y ) );
+
+  return y;
+}
+```
+
+To recap, the big leaps of logic for me were:
+
+- Using Newton's method to do divisions using multiplication operations.
+- Realizing the relationship between the floating point bit representation of x and log(x).
+- Using log(x) and some algebra to get a close approximation for y.
+- Using minimaxing to find a better magic number that accounts for the error term.
+- Using pointer magic to interpret the bits of a float as a long and vice-versa.
+
+When I started looking into this topic I didn't think it would lead me to calculus, solving optimization problems, the binary representation of floating point numbers, and memory management inside computers. I think that's what I enjoyed most about it. Any one of these ideas is interesting and many students learn about them every year, but to put them all together to solve a completely unrelated problem in vector graphics requires someone with a very specific set of skills.
+
+![Venn Diagram](./venn-diagram.png)
+
+What problems can you solve with your specific set of skills?
+
+[^1]: The [history](https://www.beyond3d.com/content/articles/8/) behind the algorithm is pretty interesting too. The algorithm was originally found in the source code of Quake III Arena, attributed to the iconic John Carmack however it was later discovered to predate the game.
+
+[^2]: [This article](https://www.linkedin.com/pulse/fast-inverse-square-root-still-armin-kassemi-langroodi/) goes into more detail and shows benchmarks.
+
+[^3]: This is technically not always true because there are cases where a good initial guess can send you off on a wild goose chase. The [3Blue1Brown video](https://youtu.be/-RdOwhmqP5s?t=524) explains this better. However, for the purposes of fast inverse square root, this assumption works well.
+
+[^4]: The reason it's called floating point is because the point isn't fixed. It's able to "float" depending on what the exponent value is.
+
+[^5]: Astute readers might notice that if the mantissa is 0 then we can't avoid a leading 0, the floating point standard handles this in an interesting way but since the inverse of 0 is undefined, we'll just ignore it for the rest of this post. Even more astute readers would notice that the IEEE floating point standards includes denormalization where the leading 1 is excluded if all exponent bits at set to 0. Since that only happens for extremely small numbers, it's unlikely to cause issues in real world applications.
+
+[^6]: Brute forcing the magic number by trying out all the different constants might be a bit unsatisfying for you. Maybe you wanted a mathematically rigorous way to narrow it down to the precise bit. The math is a bit out of scope for this article. However, there are some great papers by Chris Lomont and others that prove this (and find even better constants) using a lot of algebra and piecewise equation optimizations if you're into that stuff. See [Fast Inverse Square Root - Chris Lomont](http://www.lomont.org/papers/2003/InvSqrt.pdf) or [A Modification of the Fast Inverse Square Root Algorithm](https://www.preprints.org/manuscript/201908.0045/v1).]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[How Fast Inverse Square Root actually works]]></title>
+            <link>https://www.preethamrn.com/posts/fast-inverse-sqrt/</link>
+            <guid>https://www.preethamrn.com/posts/fast-inverse-sqrt/</guid>
+            <pubDate>Sun, 14 Aug 2022 00:00:00 GMT</pubDate>
+            <content:encoded><![CDATA[import NewtonMethodDemo from '@/components/PostComponents/FastInverseSqrt/NewtonMethodDemo.vue'
+import FloatingPointDemo from '@/components/PostComponents/FastInverseSqrt/FloatingPointDemo.vue'
+import SideBySide from '@/components/Blog/SideBySide.vue'
+import Highlight from '@/components/Blog/Highlight.vue'
+
+
+> This article contains some profanity which is found in the original code. If you'd prefer to read a version without profanity or one to show kids check out [the SFW version here](fast-inverse-sqrt-sfw).
+
+$$
+\frac{1}{\sqrt{x}}
+$$
+
+```c
+float Q_rsqrt( float number )
+{
+  long i;
+  float x2, y;
+  const float threehalfs = 1.5F;
+
+  x2 = number * 0.5F;
+  y  = number;
+  i  = * ( long * ) &y;         // evil floating point bit level hacking
+  i  = 0x5f3759df - ( i >> 1 ); // what the fuck?
+  y  = * ( float * ) &i;
+  y  = y * ( threehalfs - ( x2 * y * y ) );   // 1st iteration
+//  y  = y * ( threehalfs - ( x2 * y * y ) );   // optional 2nd iteration
+
+  return y;
+}
+```
+
+Fast Inverse Square Root is one of the most famous algorithms in game development. But what makes it so iconic? How does the algorithm work? And where does `0x5f3759df` come from? All will be answered in this "simple" blog post.
+
+## Why is this algorithm so iconic?
+It's not often that you see swear words in official, [public source code](https://github.com/id-Software/Quake-III-Arena/blob/dbe4ddb10315479fc00086f08e25d968b4b43c49/code/game/q_math.c#L552).[^1] And doing division without a single division operator! How's that even possible?! And more importantly, why?
+
+Finding the inverse square root of a number is important for normalizing vectors in computer graphics programs which is often required in lighting and shaders calculations. These computations are made thousands of times per frame so it was imperative to find a fast algorithm for them.
+
+To naively find the inverse square root we must first find the square root of a number and then find its reciprocal. Both of those are complex operations that take a long time on old CPUs. On the other hand, the fast algorithm only requires multiplications, bit shifts, and subtraction, all of which can run much faster so it became the defacto method for computing inverse square roots.
+
+Is it used today? Not really. Hardware advancements have made this pretty obsolete since many CPUs come with rsqrt instructions which can compute the inverse square root in a single instruction[^2].
+
+# "Slow inverse square root"
+
+```c
+float S_rsqrt( float number, int iterations ) {
+  long i;
+  float x2, y;
+  const float threehalfs = 1.5F;
+
+  x2 = number * 0.5F;
+  y  = 0.01; // initial value of y - the result that we're approximating
+  for (int i = 0; i < iterations; i++) {
+    y  = y * ( threehalfs - ( x2 * y * y ) );
+  }
+
+  return y;
+}
+```
+
+Here's my "slow" inverse square root algorithm.
+
+Try [running](https://replit.com/@PreethamNaraya1/Slow-Inverse-Square-Root#main.c) it. It's slower but surprisingly it still works. Unlike the fast method, this doesn't use `0x5f3759df` or the "evil floating point hack". But it also doesn't use any square root or division operations. That's because those steps aren't required. The core of this algorithm is using something called Newton's method.
+
+## Newton's Method
+
+There are plenty of great resources on what this method is and why it works.
+
+[Newton's method produces this fractal, why don't we teach it in calculus classes?](https://youtu.be/-RdOwhmqP5s?t=336)
+
+TL;DW: It works by taking an approximation and iterating closer and closer to the actual value by riding the slope of the curve.
+
+<Highlight>
+  <NewtonMethodDemo id='1'/>
+</Highlight>
+
+* The <span style='color: blue'>blue line</span> is the equation for which we're trying to find the solution (the point where it intersects with the x-axis).
+
+* The <span style='color: red'>red line</span> is the tangent to the blue line at the point where x is our initial guess ($y_n$). This is the slope that we're riding.
+
+* The <span style='color: green'>green line</span> is the x intercept of the red line. We can either use this as our solution approximation or use it to repeat the Newton method with another guess ($y_{n+1}$) until we get close to the actual solution.
+
+Here's a bunch of fancy math for completion's sake however you can skip to the [next section](#what-the-fuck-ie-choosing-a-better-initial-guess) if you're more interested in where `0x5f3759df` comes from and how the evil floating point bit level hack works.
+
+<Highlight>
+
+### Fancy math
+
+Let's say that x is our input number and y is the inverse square root. We want to solve for the equation
+
+$$
+\begin{aligned}
+y &= 1/sqrt(x)\\
+\text{or } 0 &= 1/y^2 - x
+\end{aligned}
+$$
+
+Newton's method can help us solve the roots of this equation for y. Remember that we're solving for y here. x is a constant input.
+
+$$
+\begin{aligned}
+f(y) &= 1/y^2 - x \\
+f'(y) &= -2y^{-3}
+\end{aligned}
+$$
+
+To get the next iteration of y, we "ride the slope" of f(y) one step closer to its root.
+
+$$
+\begin{aligned}
+y_{next} &= y - f(y)/f'(y)\\
+y_{next} &= y - \frac{1/y^2 - x}{-2/y^3}\\
+y_{next} &= y + y/2 -xy^3/2\\
+y_{next} &= y(3/2 -xy^2/2)
+\end{aligned}
+$$
+
+Which is how we get the code
+
+```c
+const float threehalfs = 1.5F;
+x2 = number * 0.5F;
+
+y = y * (threehalfs - x2 * y * y) // first iteration
+```
+
+And now we're doing an inverse square root without a single division operator! Isn't that exciting!
+
+The important thing to note here is that Newton's method is just an approximation. The closer your initial guess, the fewer iterations you'll need.[^3] With "slow inverse square root" we often need more than 10 iterations to converge on the actual value. In the fast inverse square root algorithm, we get away with just a single iteration. So that's our next goal - choosing a better initial guess.
+
+</Highlight>
+
+# "What the fuck?" ie, choosing a better initial guess
+
+```cpp
+i = 0x5f3759df - ( i >> 1 )
+```
+
+The `i` on the left hand side is our initial guess `y` and the `i` on the right hand side is our original number `x`. So let's rewrite the code so we don't get confused between the two different values of `i`.
+
+```cpp
+y_bits = 0x5f3759df - ( x_bits >> 1 )
+```
+
+Note that we're using $x_{bits}$ instead of $x$ here. "What's the difference between $x_{bits}$ and $x$?" you might ask. While $x$ is the actual number that we're computing the inverse square root for, $x_{bits}$ is the number that a computer stores internally to represent that number, that is, the **binary representation** of that number. For example, instead of $3.33$ we're using $01000000010101010001111010111001_{\text{base } 2}$
+
+Using the binary representation allows us to do operations like subtraction (`-`) and bit shifting (`>>`). How we do this conversion will be explained in the [next section](#evil-floating-point-bit-level-hack) on "evil floating point bit level hacking" but first we need to understand how computers store numbers...
+
+## How computers store numbers
+
+Decimal integers use digits from 0 to 9 to represent numbers in base 10. Computers run off of 1s and 0s and so are restricted to only using base 2.
+
+The 1s and 0s in a computer are known as bits. Grouping together bits allows us to represent larger numbers and the numbers that we'll be dealing with today have 32 bits.
+
+Just like decimal integers use powers of 10 for each place (unit, tens, hundreds, thousands, etc.), binary integers use powers of 2. So:
+
+* Decimal $1234 = 1 * 10^3 + 2 * 10^2 + 3 * 10 + 4$
+* Binary $101101 = 1 * 2^5 + 0 * 2^4 + 1 * 2^3 + 1 * 2^2 + 0 * 2 + 1$
+
+
+You may notice however, that this doesn't allow us to represent numbers with a decimal point in them like $1.5$ or $74.123$. For that, we need to use [The IEEE Floating Point Standard](#the-ieee-floating-point-standard)
+
+### The IEEE Floating Point Standard
+
+Floating point is a fancy way of saying binary scientific notation[^4].
+
+Just like regular scientific notation has numbers like $+1.6*10^{15}, -1.731*10^{-52}, +4.25*10^0$, floating point has numbers like $+1.101011*2^{11010}, -1.001101*2^{-101}, -1.001*2^{0}$
+
+There are a few commonalities in both representations:
+
+1. The numbers are split into a sign (+ or -), a coefficient (also called a mantissa), and an exponent. For example, $-1.731*10^{-52}$ can be split into
+    * sign: $-$
+    * coefficient: $1.731$
+    * exponent: $-52$
+2. The leading number is never zero. If it was, we could just shift the point to the first non-zero number and subtract from the exponent. For example, instead of $0.61*10^2$, we can write $6.1*10^1$
+
+Using these two rules, we can write our floating point number as
+
+$$
+\begin{aligned}
+x &= s*m*2^e
+\end{aligned}
+$$
+
+To store this on a computer, we need to convert the $s$, $e$, and $m$ values into their binary representations `S`, `E`, and `M`. 1 bit for the sign, 8 bits for the exponent, and 23 bits for the mantissa to make 32 bits in total.
+
+![IEEE 754 Standard](./ieee754-standard.png)
+
+- s is the sign. If the sign bit `S` is 0 then the number is positive (ie, +1). 1 means negative (ie, -1). For the purposes of inverse square root x will always be positive (you can't take square roots of negative numbers in the "real" world), so `S` will always be 0. We can ignore it for the rest of this post.
+- m is the mantissa. Since the leading digit of a floating point number is always a 1 in binary, the 1 is implied and `M` is just the fractional part after the point (ie, m = 1 + `M`) [^5]
+- e is the exponent. To store positive and negative exponents, we take the unsigned 8 bit exponent value (`E`) and subtract 127 to get a range from -127 to +128. This allows us to store tiny fractions smaller than 1 using negative exponents and large numbers bigger than 1 using positive exponents.
+
+Putting all those constraints together, we get the following equation for our floating point number x in terms of the binary representations of `S`, `M`, and `E`
+
+$$
+\begin{aligned}
+x_{bits} &= 2^{23}*(E+M)\\
+x &= S*(1 + M)*2^{E-127}
+\end{aligned}
+$$
+
+Try playing around with this floating point number calculator to create floating point numbers of your own!
+
+<Highlight>
+  <FloatingPointDemo />
+</Highlight>
+
+If you click on the scientific notation you'll notice that the scientific notation matches the input number even though they don't look anything alike.
+
+### Working with logarithms
+
+Working with exponents is tricky and confusing. Instead, by taking the logarithm, we turn confusing division, multiplication, and exponent operations into simple subtraction, addition, and multiplication.
+
+It turns out that working with logarithms also allows us to find a relationship between the binary representation of x ($x_{bits}$) and the number $x$.
+
+If you squint really hard then you can see that taking the log of x will bring the exponent value down and with some scaling and shifting, it's proportional to $x_{bits}$. Fortunately, we don't have to squint.
+
+$$
+\begin{aligned}
+x_{bits} &= 2^{23}*(E + M) && \text{from earlier}
+\end{aligned}
+$$
+
+Meanwhile
+
+$$
+\begin{aligned}
+x &= (1 + M)*2^{E-127} && \text{from earlier}\\
+\implies log_2(x) &= E - 127 + log(1+M)
+\end{aligned}
+$$
+
+
+<SideBySide>
+
+<template v-slot:left>
+
+Through another fortunate quirk of logarithms, we see that [$x \approxeq log(1+x)$](https://www.desmos.com/calculator/k7eekdct1s) for small values of x between 0 and 1.
+
+Since `M` will always be within 0 and 1, we can say that $M = log(1+M) + \varepsilon$ where $\varepsilon$ is a small error term.
+
+</template>
+
+<template v-slot:right>
+
+![log(1+x) Approximation](./log-approximation.png)
+
+</template>
+
+</SideBySide>
+
+Putting all of this together, we get
+
+$$
+\begin{aligned}
+log_2(x) &= E-127+log(1+M)\\
+&=E-127+M+\varepsilon\\
+&=2^{23}*(E+M)/2^{23}-127+\varepsilon\\
+&=x_{bits}/2^{23}-127+\varepsilon\\
+\end{aligned}
+$$
+
+So now we have a mathematical relationship between the binary representation of x and log(x).
+
+## What is `0x5f3759df`
+
+Using logarithms allows us to turn $y = 1/x^{1/2}$ into $log(y) = -\frac{1}{2}log(x)$.
+
+From here, we can use the relationship we found earlier to relate the binary representations of x and y.
+
+$$
+\begin{aligned}
+&y = 1/x^{1/2}\\
+\implies &log(y) = -\frac{1}{2}log(x)\\
+\implies &y_{bits}/2^{23} - 127 + \varepsilon = -\frac{1}{2}(x_{bits}/2^{23} - 127 + \varepsilon)\\
+\implies &y_{bits} = \frac{3}{2}2^{23}(127 - 
+ε) - x_{bits}/2
+\end{aligned}
+$$
+
+Or in other words
+
+```c
+y_bits  = 0x5f3759df - ( x_bits >> 1 );
+```
+
+$\frac{3}{2}2^{23}(127 - \varepsilon)$ gets us the magic number `0x5f3759df` and $-x_{bits}/2$ gets us `-(x_bits >> 1)`
+
+If we ignore the error term ε and plug the magic number equation into [WolframAlpha](https://www.wolframalpha.com/input?i=%5Cfrac%7B3%7D%7B2%7D2%5E%7B23%7D%28127%29) we get 1598029824. And that's [equal to](https://www.wolframalpha.com/input?i=%5Cfrac%7B3%7D%7B2%7D2%5E%7B23%7D%28127%29+in+hex) … `0x5f400000`? So where did they get `0x5f3759df` from?…
+
+Most likely from the ε… I guess we're going on another tangent.
+
+## Optimizing ε with Minimaxing
+
+Minimaxing is a lot like what it sounds like. In this case, we want to minimize the maximum error - in other words, find the magic number for which `Q_rsqrt` gives the smallest error compared to the actual inverse square root when considering all possible values of x_bits.
+
+Since there are about 2 billion values of x and another 4 billion values for the magic number, we'll need to do some optimization if we want this to finish running before the sun consumes the solar system. Let's try speeding things up by cutting down the number of values that we need to search through.
+
+1. In the previous step, we approximately narrowed down the magic number to `0x5f400000`. So we only need to search between `0x5f300000` and `0x5f500000`.
+2. Instead of searching all values of x, we can ignore the exponent and only search for all values of the mantissa because ε only comes up in the equation $\text{M} = log(1 + \text{M}) + \varepsilon$. If we optimize ε for one exponent value, it's optimized for all exponent values.
+3. Instead of searching all values of the magic number one by one, we can narrow down the value of the magic number digit by digit, working in increments of 0x10000, then 0x1000 and so on until all digits are found. This way, we only check around 160 values instead of 2 million.
+
+That gives us the following pseudocode:
+```c
+// let's call the magic number C
+// and the range of values we're checking is between cMin and cMax.
+cMin, cMax =  0x5f300000, 0x5f500000
+delta = 0x10000
+while (delta > 0):
+  minMaxError, minMaxC = 10000, cMin
+  for each C between cMin and cMax in increments of delta:
+    for each mantissa value M:
+      x = 0x3f000000 + M // x in [0.5,2) with mantissa M
+      y = Q_rsqrt(x, C)
+      z = sqrt(x)
+      error = abs(1 - y * z) // relative error
+      if (error > minMaxError):
+        minMaxError = error
+        minMaxC = C
+  // narrow down the range of cMin to cMax
+  // and use smaller increments for delta
+  cMin = minMaxC - delta
+  cMax = minMaxC + delta
+  delta = delta >> 4
+
+return minMaxC
+```
+[Try running the actual code for yourself](https://replit.com/@PreethamNaraya1/Minimaxing#main.c). You can try playing around with different ranges of values, different deltas, or different numbers of iterations to see how that impacts the result.
+
+And now we get... `0x5f375a87`. This is still quite different from the constant found in the original code. At this point I was stumped. I got an answer but it wasn't the answer I was looking for. How did the developers come up with `0x5f3759df`?
+
+<!--note: TODO: show a video or graph of how the optimization process runs-->
+
+I tried comparing the errors to see if our magic number was somehow producing worse results.
+
+```bash
+$ ./main --iterations=1 0x5f3759df
+Max Error for 0x5f3759df: 0.00175233867209800831
+$ ./main --iterations=1 0x5f375a87
+Max Error for 0x5f375a87: 0.00175128778162259024
+```
+
+The error for our magic number `0x5f375a87` is smaller.
+
+I tried it with 0 iterations of Newton's method
+
+```bash
+$ ./main --iterations=0 0x5f3759df
+Max Error for 0x5f3759df: 0.03437577281600123769
+$ ./main --iterations=0 0x5f375a87
+Max Error for 0x5f375a87: 0.03436540281256528218
+```
+
+We're still smaller. I had to run it with 4 iterations of Newton's method before I started seeing both constants giving the same error of 0.00000010679068984665. And even then, the two constants were performing equally well.
+
+So if `0x5f375a87` works better then why does Quake use `0x5f3759df`? Perhaps `0x5f3759df` works better with the numbers that Quake deals with. Perhaps the developer used a different method to generate this number. Perhaps the developer figured that their number worked well enough and didn't bother optimizing it further. Perhaps it was simply pulled out of the developer's rear. Only the person who wrote this code knows why `0x5f3759df` was chosen instead. At least now we know how the magic number works.[^6]
+
+
+# Evil floating point bit level hack
+
+```c
+y  = number;
+i  = * ( long * ) &y;    // evil floating point bit level hacking
+...
+y  = * ( float * ) &i;
+```
+
+In order to do the magic from the previous step, we need to work with the binary representation of numbers (`x_bits` and `y_bits`) instead of the floating point numbers (`x` and `y`) themselves. This requires us to convert from the floating point number `x` to the 32 bits that a computer uses to store that number internally. Those 32 bits are called a long int or long for short.
+
+C allows you to convert between [floats](#the-ieee-floating-point-standard) and [longs](#how-computers-store-numbers) using [type casting](https://en.wikipedia.org/wiki/Type_conversion#C-like_languages). However, if you type cast a float to a long normally, then you would do the sensible thing and, for example, convert a float storing 3.33 into a integer storing 3.
+
+The binary representation of float(3.33) is `0x40551eb9`
+
+The binary representation of long(3) is `0x00000003`
+
+Clearly these are very different and wouldn't help us when our equation from the previous step depends on `x_bits`. What we instead want is a long that's storing `0x40551eb9` (1079320249 in decimal).
+
+In order to do that, we need to trick the computer into interpreting the floating point bits as long bits. We can do this by
+
+1. telling the computer that this float pointer (`&y`)
+2. is actually a long pointer (type casting using `(long *)`)
+3. and then dereferencing that value into a long variable (`*`).
+
+![C Memory Management](./c-memory.png)
+
+That's what this line is doing (reading right to left): `i = * (long *) &y;`
+
+Going back from i to y is just a reverse of the previous steps: convert the long pointer (`&i`) into a float pointer (`(float *)`) and dereferencing that value into a float variable (`*`). So we get `y = * ( float * ) &i;`
+
+# Putting it all together
+
+Now that we know how the algorithm works and why it works, hopefully we can turn the code a bit clearer with better comments.
+
+```c
+float Q_rsqrt(float number)
+{
+  // interpreting the float bits of the number as a long
+  // by casting the float pointer to a long pointer without
+  // modifying the bits
+  long x_bits  = * ( long * ) &number;
+
+  // finding a better initial guess for the inverse sqrt
+  long y_bits = 0x5f3759df - ( x_bits >> 1 );
+
+  // interpreting the long bits of y_bits as a float
+  // by reversing the steps from earlier
+  float y  = * ( float * ) &y_bits;
+
+  const float threehalfs = 1.5F;
+  float half_x = number * 0.5F;
+  y  = y * ( threehalfs - ( half_x * y * y ) ); // 1st iteration
+  // optional 2nd iteration to get a better approximation
+  // y  = y * ( threehalfs - ( half_x * y * y ) );
+
+  return y;
+}
+```
+
+To recap, the big leaps of logic for me were:
+
+- Using Newton's method to do divisions using multiplication operations.
+- Realizing the relationship between the floating point bit representation of x and log(x).
+- Using log(x) and some algebra to get a close approximation for y.
+- Using minimaxing to find a better magic number that accounts for the error term.
+- Using pointer magic to interpret the bits of a float as a long and vice-versa.
+
+When I started looking into this topic I didn't think it would lead me to calculus, solving optimization problems, the binary representation of floating point numbers, and memory management inside computers. I think that's what I enjoyed most about it. Any one of these ideas is interesting and many students learn about them every year, but to put them all together to solve a completely unrelated problem in vector graphics requires someone with a very specific set of skills.
+
+![Venn Diagram](./venn-diagram.png)
+
+What problems can you solve with your specific set of skills?
+
+[^1]: The [history](https://www.beyond3d.com/content/articles/8/) behind the algorithm is pretty interesting too. The algorithm was originally found in the source code of Quake III Arena, attributed to the iconic John Carmack however it was later discovered to predate the game.
+
+[^2]: [This article](https://www.linkedin.com/pulse/fast-inverse-square-root-still-armin-kassemi-langroodi/) goes into more detail and shows benchmarks.
+
+[^3]: This is technically not always true because there are cases where a good initial guess can send you off on a wild goose chase. The [3Blue1Brown video](https://youtu.be/-RdOwhmqP5s?t=524) explains this better. However, for the purposes of fast inverse square root, this assumption works well.
+
+[^4]: The reason it's called floating point is because the point isn't fixed. It's able to "float" depending on what the exponent value is.
+
+[^5]: Astute readers might notice that if the mantissa is 0 then we can't avoid a leading 0, the floating point standard handles this in an interesting way but since the inverse of 0 is undefined, we'll just ignore it for the rest of this post. Even more astute readers would notice that the IEEE floating point standards includes denormalization where the leading 1 is excluded if all exponent bits at set to 0. Since that only happens for extremely small numbers, it's unlikely to cause issues in real world applications.
+
+[^6]: Brute forcing the magic number by trying out all the different constants might be a bit unsatisfying for you. Maybe you wanted a mathematically rigorous way to narrow it down to the precise bit. The math is a bit out of scope for this article. However, there are some great papers by Chris Lomont and others that prove this (and find even better constants) using a lot of algebra and piecewise equation optimizations if you're into that stuff. See [Fast Inverse Square Root - Chris Lomont](http://www.lomont.org/papers/2003/InvSqrt.pdf) or [A Modification of the Fast Inverse Square Root Algorithm](https://www.preprints.org/manuscript/201908.0045/v1).]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[2020 Year in Review]]></title>
+            <link>https://www.preethamrn.com/posts/2020-year-in-review/</link>
+            <guid>https://www.preethamrn.com/posts/2020-year-in-review/</guid>
+            <pubDate>Fri, 01 Jan 2021 00:00:00 GMT</pubDate>
+            <content:encoded><![CDATA[Time for my yearly flex under the guise of reflection.
+
+Every year I've tried resolutions, they've never worked for me. Resolutions are easy to fail and they're not flexible enough to accommodate changing circumstances. 2020, more than ever, has proven that. So last year, [inspired by CGP Grey](https://www.youtube.com/watch?v=NVGuFdX5guE), I tried something different[^1]. I gave my year a ***✨theme✨***. While I suggest you watch his video, the gist is that you set a theme for the entire year and instead of dealing with single goals or resolutions, you work towards where you want to be at the end without knowing what the exact path to get there is going to look like.
+
+2020 was my **Year of Doing**. And here's how it went.
+
+## Pokemon Dens
+
+If you wait for the new year before starting then you're off to a bad start. Which is why I started this project 3 days before the new year.
+
+![Pokemon Dens - First Commit](./pokemondens-commit.png)
+
+Inspiration struck when I was playing Pokemon Sword/Shield with my friends over winter break and realized how difficult it was to find information about raids and the new wild area that was added. Since this was the majority of end game content, it was where I spent most of my time with friends.
+
+I wanted to build a tool that would make this process more efficient. So I built an interactive map of the Pokemon Sword/Shield wild area.
+
+While it's always fun to build things for myself, I'd be lying if I said I didn't care about other's opinions. Usually when I build something, it's met with positive reception but only like 3 people end up using it. So when I made a post a GIF of my half finished app on reddit before taking a nap, I was surprised to say the least when I woke up to [over 1000 upvotes](https://www.reddit.com/r/PokemonSwordAndShield/comments/eqn6h4/interactive_map_of_the_wild_area_with_list_of/).
+
+A [few](https://www.dexerto.com/pokemon/interactive-sword-shield-map-makes-finding-wild-area-pokemon-a-breeze-1322324/)&nbsp;[gaming](https://dotesports.com/pokemon/news/pokemon-fan-creates-interactive-map-of-sword-and-shields-wild-area) "[news](https://piunikaweb.com/2020/02/03/pokemon-sword-and-shield-interactive-map-all-pokemon-locations-in-the-wild-area/)" [websites](https://www.imore.com/fan-made-interactive-map-pokemon-sword-and-shield-wild-area-going-be-exactly-what-you-needed) picked it up which was cool (although I wish they did this when the website was actually live instead of just linking the GIF). I then spent the next 2 days scrambling to finish building it. Although it was partially working when I made the GIF, I still needed to scrape data for all the remaining sections of the wild area and integrate it into the website. I bought a domain, uploaded it to a github page, and then made [an update post on reddit](https://www.reddit.com/r/PokemonSwordAndShield/comments/es50l6/update_interactive_map_of_the_wild_area_with_list/) which also blew up... for about 10 hours after which point the subreddit was made private.
+
+![Pokemon Dens - Reddit Post](./pokemondens-reddit.png)
+
+![Pokemon Dens - Analytics](./pokemondens-analytics.png)
+
+Unbeknownst to me, there was some unrelated drama going on between the mods of the subreddit. I still don't fully understand the reason[^2] but as a result, the post that I made fell off the face of the earth (notice the extremely sharp drop in users after the first day it was live). When the subreddit was reinstated, my post was no longer at the top. Who knows what would have happened if the subreddit didn't go down for 2 days. Despite this I still got a pretty good response and it gave me a lot of confidence that the year was going to go great!
+
+Then the coronavirus happened...
+
+---
+
+## CubersLive
+
+CubersLive was a website I built all the way back in 2018 because I wanted to be able to host Rubik's Cube races against my friends over summer break. It took so long to build that when I eventually did release it, summer break was almost over so no one really used it. Fast forward 2 years and a series of (unfortunate?) events occurred which led to this application being a lot more useful than I could have ever anticipated.
+
+1. Due to the Coronavirus all World Cube Association competitions were canceled.
+2. A group of cubers get together to announce an online competition instead called Cubing At Home which would be streamed on Twitch.
+3. I decided to create a Twitch account and start streaming too.
+4. On Twitch I notice [Lazer0Monkey](https://www.youtube.com/user/LaZer0MonKey) (a relatively popular cubing YouTuber) using my website.
+5. I message him and after a bit of back and forth, he mentions another online cubing competition that he's hosting - the MonkeyLeague - which he might use my website for.
+
+After much refactoring, implementing new features, improving the user experience, and fixing bugs at 5am in the morning while the competition was already live, I got to witness this
+
+<iframe width="760" height="453" src="https://www.youtube.com/embed/Z-2Zznk4vk4?t=5423" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+It's a cubing competition between Feliks Zemdegs and Tymon Kolasiński. Feliks is the [world record holder of many Rubik's cube categories](https://www.worldcubeassociation.org/persons/2009ZEMD01). That was live streamed on Twitch with a peak of 1000+ concurrent viewers (and many more watching it after the fact). And the CubersLive logo is right there in the bottom left corner.
+
+## TwistyPuzzleCup
+
+The above story concurrently takes a different path at step 4.
+
+4. Me and a few friends ([Manu](https://www.worldcubeassociation.org/persons/2013SING12) and [Michael](https://www.worldcubeassociation.org/persons/2016CHAI03)) decide to start our own online cubing competition.
+
+Before jumping into it and coding a full fledged application we did a test run with Google Sheets, Google Forms and a super basic StreamLabs setup[^3]. [It went way better than I could have ever imagined](https://www.youtube.com/watch?v=eR9VmV4n_Oc) and so I went on a massive coding binge as I implemented a completely new frontend and backend in CubersLive (while simultaneously implementing new features required for MonkeyLeague) to support this competition while also not breaking any existing functionality. This ended up being some of the best Javascript code I've written so far[^4]. Finally we unveiled the [Twisty Puzzle Cup](https://www.cuberslive.com/tpc).
+
+We managed to get sponsored by SpeedCubeShop and were able to have a prize pool for where we decided to do a full segment with four events - 3x3, 2x2, Pyraminx, and 3BLD. While the turnout wasn't as much as Cubing At Home or the MonkeyLeague, I felt ecstatic regardless because for the first I finally felt like a part of the cubing community instead of just an outside spectator[^5].
+
+A month later we did a second segment partnering with SpeedCubeShop and the American Cancer Society [where we raised over $1700](https://tiltify.com/@cuberslive/cuberslive-vs-cancer) for charity. PogChamp
+
+I also have to thank people like Dan, Evan, Ben, Tazzlyn, Tiffany, and any one else who help cast or participate in the stream or competition[^6]. It wouldn't have been possible without them.
+
+## Twitch Affiliate
+
+3. I decided to create a Twitch account and start streaming too.
+
+If it seemed like I glossed over that point above, it's for good reason. It deserves its own section. At first I only played with friends and they kept me company on discord but then I started getting a few random people watching me regularly. Partly because they knew me from CubersLive and the Twisty Puzzle Cup, partly from me hanging out in other streamers' chats, and partly from me being lucky and people finding me on their own.
+
+A few notable moments. Getting a random viewer out of nowhere on my first day streaming who ended up following and continues to watch me to this day. [Getting a huge raid followed by a personal best in a Super Mario 64 speedrun](https://www.youtube.com/watch?v=CkuTit7uLc4). And then [it happened again](https://www.youtube.com/watch?v=O06n_YQiF8w) on another stream weeks later. Doing almost 400 pushups in a single stream. Building a Bluetooth cube algorithm trainer. Beating the hardest game known to man[^7] - Pogostuck. And then beating an even harder Pogostuck map that fewer than 1000 people have beaten in the world.
+
+Sometime in the middle of playing Pogostuck I ended up getting affiliate by meeting all the requirements.
+
+![Twitch - Analytics](./twitch-analytics.png)
+
+Looks like I'm still growing so I don't plan on stopping anytime soon. If you're interested, find me on [https://twitch.tv/preethamrn](https://twitch.tv/preethamrn) 🙂
+
+## Rubik's Cube Alg Trainer
+
+A fundamental part of solving a Rubik's cube is using algorithms to go from one state of the cube to a simpler state. The size of these alg sets range from 20 to 400 or even over 1000 depending on how much of the cube you'd like to solve in a single step. The best way to learn these algorithms is by simply practicing them over and over until they're in your muscle memory.
+
+Usually this is done by scrambling the cube and then solving it a bunch of times, however, scrambling is long and time consuming. So naturally when I bought a Bluetooth cube, the first thing I wanted to do was build [my own alg trainer](https://www.preethamrn.com/cubing/algtrainer) which allowed you to continuously solve by simulating a virtual cube that would be automatically scrambled for you.
+
+Through this I learned a lot about the cubing.js library, got another 2 weeks of content for my Twitch stream, and met a few people working on really interesting projects in the Rubik's cube space.
+
+## Personal Website
+
+The more I learn about web development, the more my personal website evolves. 5 years ago, I just copy and pasted a template that I found online. A few year later, I learned about Vue and built my own website from the ground up. It looked nice but as I started integrating more packages and utilities, the bundle size starting growing. Most people visiting my portfolio didn't need the code for Bluetooth cube interfaces, but since I built a single page application, they downloaded it anyway. Even though I hacked together a way to solve this, I figured
+
+1. it's been long enough and I've learned a few new skills[^8]
+2. I want to add a blog posts section to my website
+
+so I rewrote it using [Gridsome](https://gridsome.org/). It's nice to use and makes writing efficient websites simple, however, whenever I had issues, it was difficult for me to debug them because the documentation was pretty lacking and the community is a lot smaller. Once I got everything working however, it's been pretty nice to work with and I think [the new website is a lot better than the old one](https://www.preethamrn.com/posts/test-post/).
+
+## Other notable "doings"
+
+### Stanz Sheet
+
+I built a few webapps for a [Twitch streamer](https://www.twitch.tv/stanz).
+
+1. [Valorant Player History](https://www.preethamrn.com/twitch-apps/valorant/) - A visualization of Valorant players and the other teams/players they are connected to ([Video](https://twitter.com/preethamrn/status/1298500209236795392)).
+2. [The Stanz Sheet](https://www.preethamrn.com/twitch-apps/stanzsheet/) - A tool for taking notes about live Valorant matches ([Video](https://twitter.com/preethamrn/status/1298500210667134977?)).
+
+### YouTube
+
+I experimented with a few new YouTube video formats. I didn't upload as much this year as I did last year but I think the 100s of hours spend streaming on Twitch makes up for that. Additionally, I'd rather upload quality videos on YouTube. At the end of the day, it's not my career so the numbers don't really matter. Instead I prefer posting things that I can show to others as something I'm proud of[^9]. If they also get popular as a result, then that's even better.
+
+### Notion
+
+I switched from Todoist to Notion in July and it has already paid off multiple times when I needed to take notes but was at a different device or had to look back at what I was doing 2 months ago. My few gripes with it are that there are many simple bugs that aren't being fixed[^10], it doesn't have good support for recurring tasks or habit tracking, and the Android app is extremely slow and doesn't have offline support. I might talk about this in the future but I don't have enough to say to warrant a full post.
+
+---
+
+## Coronavirus
+
+I'd be remiss if I didn't mention the one thing that I'm sure affected every single person reading this. Regardless of whether you had a great or horrible year, the pandemic probably contributed to a major part of that. I can't help but feel a little guilty when I have something good happen amidst such a terrible event for most people.
+
+On one hand, I haven't met any friends in person for almost a year. On the other hand, I regularly speak with people from high school and college that I rarely talked to beforehand.
+
+Communication is harder at work but I've also gotten much more time to work on coding and design, not to mention the fact that I also still have a job.
+
+Without a commute I've lost a sense of schedule which has caused problems for work life balance and thrown a lot of my habits out of whack but I now have a few extra hours to work on personal projects and live streaming which led to me becoming a Twitch affiliate.
+
+I don't have a way to end this section other than to say that I hope everyone stays safe and things get back to normal soon.
+
+## Theme for 2021
+
+In selecting my theme for 2021, I had two simple goals.
+
+1. Continue building things just like I did this year.
+2. Set myself up for 2022 - Year of Independence.
+
+I think a good transition year would be the **Year of Habits**. Each of my goals supports a different category of habits. The "continue building things" habit would involve being more consistent with the time I spend working. Instead of having massive bursts of productivity every few weeks that end up dying before I'm able to publish, I'd prefer to slowly iterate on a few ideas that I think have promise. The "set myself up for 2022" habits would involve being less reliant on external factors like a rigid schedule or commute. If I can fix my sleep schedule, work out regularly, and read more (audiobooks count) while still living through a pandemic then things will only get better as the world goes back to normal.
+
+## Conclusion
+
+If there's one takeaway from this, it's to give themes a shot if New Year's Resolutions don't work for you. And if a year long theme is too much then just try it for a season. Like the Winter of Health.
+
+It's probably a bad idea to write this much for my first blog post but on the bright side that means my writing is only going to get better and hopefully the 2021 Year in Review post will show that.
+
+I'll end this off with a photo from the start of the year vs. the end of the year.
+![Year Start versus End Pics](./pics.png)
+
+[^1]: I did something sort of like themes before this but it wasn't until I was introduced to this idea that I actually put it in words. Before I had quarterly goals like learn cooking, make friends, and work out more whereas now I would call that Year/Season of Health.
+
+[^2]: I think it had something to do with the original mod trying to sell the subreddit and discord. In order to regain access the other mods had to organize a coup and petition access with the reddit admins. Since I don't know all the details I don't want to say more at risk of butchering the story.
+
+[^3]: If there's one thing I learned for this experience, it's the importance of testing an MVP. After the test run, we nailed down a lot of details that we weren't sure of and those design decisions fed into the final application. Also, if the test run didn't work out as well as we expected, then it would have been smarter to give up or try something different instead of wasting weeks on an idea that was doomed to fail.
+
+[^4]: This isn't saying much considering it's my latest big Javascript project and as long as I keep learning new things, my newer code is going to naturally get better.
+
+[^5]: Something that my intro programming class professor told that I always try to keep to heart is to be a creator and not just a consumer. I leaned a lot in that class but this is the one thing that I remember the most.
+
+[^6]: If I missed your name let me know and I'll be happy to add you.
+
+[^7]: hyperbole
+
+[^8]: see above projects.
+
+[^9]: I've actually had people I meet mention my YouTube channel without me bringing it up (they probably Googled my name) and said some of the videos were interesting.
+
+[^10]: For example, you can't change the text color of captions to be black. Horizontal dividers disappear when there is a content block preceding them. These seem like one line CSS fixes but it seems like no one in the Notion team is taking ownership of these bug fixes.
+]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[Test Post Please Ignore]]></title>
+            <link>https://www.preethamrn.com/posts/test-post/</link>
+            <guid>https://www.preethamrn.com/posts/test-post/</guid>
+            <pubDate>Wed, 11 Nov 2020 00:00:00 GMT</pubDate>
+            <content:encoded><![CDATA[
+If you're seeing this post then that means the blog is working. I'll have a lot more (hopefully) great content coming soon. Just hold on.
+
+Just so this post has a bit of actual content. Here's an image of my old website. It was littered with typos and dead links that I didn't notice for 2 years since I never really updated it.
+![OLD HOMEPAGE](./old_homepage.png)
+
+And here's an image of the updated homepage. Looks a lot nicer. Lower quantity but higher quality projects. A unified layout across all my subpages. An integrated blog.
+![NEW HOMEPAGE](./new_homepage.png)
+
+I've also set up sub-repositories for webapps that were originally built in this repo and redirect to those sub pages from the original links. For example the old link [preethamrn.com/algtrainer](/algtrainer) redirects to [https://www.preethamrn.com/cubing/algtrainer](https://www.preethamrn.com/cubing/algtrainer)
+
+This helps reduce the package size of the main homepage and blog posts. I'll probably write up more about how I accomplished this later (for a hint, go to the [redirects](https://github.com/preethamrn/preethamrn.com/tree/master/content/redirects) directory in my repo).
+
+A few things that I'm planning on doing is adding tags to all my posts, a comments section, better citation support[^1], smaller image sizes, and recommended posts. Hopefully I'll have all this set up before writing my first proper blog post.
+
+In the meantime, consider following my RSS feed [here](https://www.preethamrn.com/feed.xml).
+
+[^1]: Looks like this is working now!]]></content:encoded>
+        </item>
+    </channel>
+</rss>
