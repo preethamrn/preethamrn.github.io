@@ -1,0 +1,1 @@
+import{_ as d,o as c,c as o,a as s,q as t}from"./entry.4b0b253c.js";const _={},i={class:"side-by-side-container"},n={class:"left-side"},a={class:"right-side"};function r(e,l){return c(),o("div",i,[s("div",n,[t(e.$slots,"left",{},void 0,!0)]),s("div",a,[t(e.$slots,"right",{},void 0,!0)])])}const u=d(_,[["render",r],["__scopeId","data-v-1f26c0c7"]]);export{u as default};
