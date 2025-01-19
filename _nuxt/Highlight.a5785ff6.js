@@ -1,0 +1,1 @@
+import{f as _}from"./node.e4a9c3bc.js";import{q as r,_ as i,o as a,c as l}from"./entry.1f35e69d.js";const o=(t,e,n,...c)=>t[e]?r({...t,[e]:()=>_(t[e](),n==null?void 0:n.unwrap)},e,n,...c):r(t,e,n,...c);const f={},d={class:"highlight-container"};function h(t,e){return a(),l("div",d,[o(t.$slots,"default")])}const s=i(f,[["render",h]]);export{s as default};
