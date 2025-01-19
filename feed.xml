@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://www.preethamrn.com</id>
+    <title>Preetham's Posts</title>
+    <updated>2025-01-19T22:31:22.117Z</updated>
+    <generator>https://github.com/jpmonette/feed</generator>
+    <author>
+        <name>Preetham Narayanareddy</name>
+    </author>
+    <link rel="alternate" href="https://www.preethamrn.com"/>
+    <link rel="self" href="https://www.preethamrn.com/feed.xml"/>
+    <subtitle>I write about productivity, software development, cubing, and various projects that I'm working on.</subtitle>
+    <icon>http://www.preethamrn.com/favicon.png</icon>
+    <rights>All rights reserved 2024, Preetham Narayanareddy</rights>
+    <entry>
+        <title type="html"><![CDATA[How I analyzed Mr. Beast sponsor data]]></title>
+        <id>https://www.preethamrn.com/posts/how-i-analyzed-mrbeast-sponsor-data</id>
+        <link href="https://www.preethamrn.com/posts/how-i-analyzed-mrbeast-sponsor-data"/>
+        <updated>2025-01-19T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Mr. Beast has hundreds of videos and it would be infeasible to click through all of them manually. So I built some automations to help me with my analysis. Here's how I did it...]]></summary>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Using ChatGPT on an airplane through free Whatsapp - ChatGPT Over Whatsapp (COW)]]></title>
+        <id>https://www.preethamrn.com/posts/chatgpt-over-whatsapp</id>
+        <link href="https://www.preethamrn.com/posts/chatgpt-over-whatsapp"/>
+        <updated>2025-01-14T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[ChatGPT is pretty useful and I didn't want to give up access when I flew. Most airlines give messaging access for free... so ChatGPT over Whatsapp was born.]]></summary>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Why does Mr. Beast cut out sponsors from his older videos?]]></title>
+        <id>https://www.preethamrn.com/posts/why-does-mrbeast-cut-out-sponsors</id>
+        <link href="https://www.preethamrn.com/posts/why-does-mrbeast-cut-out-sponsors"/>
+        <updated>2025-01-04T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Most YouTubers don't have the luxury of removing ads from their older videos but Mr. Beast sets his own rules. How does he get away with it and what else is unique about his sponsorships?]]></summary>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Where are Mr. Beast's sponsors now?]]></title>
+        <id>https://www.preethamrn.com/posts/where-are-mrbeast-sponsors-now</id>
+        <link href="https://www.preethamrn.com/posts/where-are-mrbeast-sponsors-now"/>
+        <updated>2025-01-01T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[These days it costs millions to sponsor a Mr. Beast video. But how much did he make in his early days and how much ROI did his early sponsors get?]]></summary>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Why are Hard Drives called "Drives"?]]></title>
+        <id>https://www.preethamrn.com/posts/why-are-hard-drives-called-drives</id>
+        <link href="https://www.preethamrn.com/posts/why-are-hard-drives-called-drives"/>
+        <updated>2024-07-12T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Punch card, floppy disks, compact discs, etc. They all focus on the form factor. So why are hard drives called "drives"? credits: Thumbnail photo by Stockio.com]]></summary>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[AI Zero to Hero Week 1: Fear of missing out on the AI train and what I'm doing about it]]></title>
+        <id>https://www.preethamrn.com/posts/ai-zero-to-hero-week-1</id>
+        <link href="https://www.preethamrn.com/posts/ai-zero-to-hero-week-1"/>
+        <updated>2024-07-04T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[I kept procrastinating learning ML because I either thought I was too late or not smart enough... Time to stop that.]]></summary>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[What to do when an airline website doesn't accept your legal name]]></title>
+        <id>https://www.preethamrn.com/posts/southwest-flight-bug</id>
+        <link href="https://www.preethamrn.com/posts/southwest-flight-bug"/>
+        <updated>2024-04-04T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Southwest usually has good customer service... but in this case it's completely broken, I can't fix it myself, and the company has no plans of fixing it]]></summary>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Using ChatGPT to make a Pokémon theme of my favorite card game]]></title>
+        <id>https://www.preethamrn.com/posts/pokemon-love-letter</id>
+        <link href="https://www.preethamrn.com/posts/pokemon-love-letter"/>
+        <updated>2024-02-16T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[ChatGPT is really great at some things but at other times, it's so incompetent that I feel like giving up]]></summary>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[When should you give up on a project that doesn't work?]]></title>
+        <id>https://www.preethamrn.com/posts/when-should-you-give-up</id>
+        <link href="https://www.preethamrn.com/posts/when-should-you-give-up"/>
+        <updated>2024-02-01T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[I spent most of my free time after work over the last month working on a project and today I'm giving up.]]></summary>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Who actually even uses is-odd and is-even?]]></title>
+        <id>https://www.preethamrn.com/posts/who-actually-uses-is-odd</id>
+        <link href="https://www.preethamrn.com/posts/who-actually-uses-is-odd"/>
+        <updated>2024-01-13T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[People love to make fun of Javascript dependency bloat by talking about packages like is-even and is-odd but that got me wondering... Who actually uses them?]]></summary>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Piver - The reason TeX is on version 3.141592653...]]></title>
+        <id>https://www.preethamrn.com/posts/piver</id>
+        <link href="https://www.preethamrn.com/posts/piver"/>
+        <updated>2023-12-17T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[You've heard of semver. You might have heard of zero ver. But what about piver?]]></summary>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[My First Open Source Contribution]]></title>
+        <id>https://www.preethamrn.com/posts/my-first-open-source-contribution</id>
+        <link href="https://www.preethamrn.com/posts/my-first-open-source-contribution"/>
+        <updated>2023-08-06T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[One of the things that I love about programming is that you can see a problem in the world and solve it. So when I found out that one of the apps I used on a daily basis was open source, I was pleasantly surprised]]></summary>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[How Fast Inverse Square Root actually works]]></title>
+        <id>https://www.preethamrn.com/posts/fast-inverse-sqrt</id>
+        <link href="https://www.preethamrn.com/posts/fast-inverse-sqrt"/>
+        <updated>2022-08-14T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Learn how one of the most elusive algorithms in gaming history works using calculus, floating point binary representations, and computer memory management]]></summary>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[2020 Year in Review]]></title>
+        <id>https://www.preethamrn.com/posts/2020-year-in-review</id>
+        <link href="https://www.preethamrn.com/posts/2020-year-in-review"/>
+        <updated>2021-01-01T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[My yearly flex under the guise of reflection. Here's a summary of everything I did in 2020 alongside a few things I learned along the way. The year's theme was the "Year of Doing"]]></summary>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Test Post Please Ignore]]></title>
+        <id>https://www.preethamrn.com/posts/test-post</id>
+        <link href="https://www.preethamrn.com/posts/test-post"/>
+        <updated>2020-11-11T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Testing my first post using Gridsome + Vue.js for a personal website blog]]></summary>
+    </entry>
+</feed>
