@@ -2,7 +2,7 @@
   "rewrites": [
     { "source": "/twitch-apps/:asset*{/}?", "destination": "https://twitch-apps.vercel.app/:asset*" },
     { "source": "/cubing/:asset*{/}?", "destination": "https://preetham-cubing.vercel.app/:asset*" },
-    { "source": "/cubingv2/:asset*{/}?", "destination": "https://cubingv2.vercel.app/:asset*" },
+    { "source": "/cubingv2/:asset*{/}?", "destination": "https://cubingv2.vercel.app/cubingv2/:asset*" },
     { "source": "/pokemondens/:asset*{/}?", "destination": "https://pokemondens.vercel.app/:asset*" }
   ]
 }
